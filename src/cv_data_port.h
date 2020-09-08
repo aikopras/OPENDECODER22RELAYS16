@@ -18,7 +18,7 @@
 //            2007-08-18 V0.2 kw default for myADDR hight changed to 0x80
 //                               -> this means: unprogrammed    
 //            2011-01-15 V0.3 ap initial values have been included for the new CVs: LenzCor and
-//                               SkipEven. CV546 supports a new feedback method: RS-bus
+//                               SkipUnEven. CV546 supports a new feedback method: RS-bus
 
 //
 //------------------------------------------------------------------------
@@ -77,7 +77,7 @@
                 //                               Reserved, according to the NMRA specs 
    0,           //  RSRetry     537  25  -       Number of RS-Bus retransmissions
    1,           //  LenzCor     538  26  -       LENZ acc. decoder address correction 
-   1,           //  SkipEven    539  27  -       Skip even addresses
+   1,           //  SkipUnEven  539  27  -       Skip uneven addresses
                 //                               CVs below are standard (for OpenDecoder)
    0,           //  BiDi        540  28  -       Bi-Directional Communication Config - keep at 0
                 //  Config      541  29  -       similar to CV#29; for acc. decoders

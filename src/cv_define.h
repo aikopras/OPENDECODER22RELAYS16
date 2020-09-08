@@ -18,7 +18,7 @@
 //            2007-09-18 V0.2 kw CV554 bis CV559 ergänzt, damit TP File
 //                               und OpenDecoder3 konsistent (war vergessen) 
 //            2008-09-03 V0.3 kw CVbit_SvMode_PowCtrl dazu
-//            2011-01-15 V0.4 ap two new CVs have been added: LenzCor and SkipEven. 
+//            2011-01-15 V0.4 ap two new CVs have been added: LenzCor and SkipUnEven.
 //                               Note that "reserved CVs" have been (mis)used for this purpose
 //                               LenzCor is included to correct "errors" made by LENZ LZV100 
 //                               master stations. Although this correction will not be needed if 
@@ -26,7 +26,7 @@
 //                               switches via four subsequent addresses, no RS-bus feedback), it 
 //                               will improve operation if it is used together with 
 //                               LENZ LZV100 master stations.
-//                               SkipEven" CV allows to "skip even addresses". The motivation is
+//                               SkipUnEven" CV allows to "skip uneven addresses". The motivation is
 //                               that the RS-Bus, like several other feedback buses (including
 //                               XPressnet) have fundamental problems if the position of multiple
 //                               switches is signaled via a single message.
@@ -104,9 +104,9 @@ typedef struct
     unsigned char Mode     ;   //536  24  -       Relays decoder mode
                                //                 CVs below are RS-bus specific (see: rs-bus.c)
                                //                 Reserved, according to the NMRA specs 
-    unsigned char RSRetry  ;   //537  25  -       Number of RS-Bus retransmissions
-    unsigned char LenzCor  ;   //538  26  -       LENZ acc. decoder address correction  
-    unsigned char SkipEven ;   //539  27  -       Even addresses are not used
+    unsigned char RSRetry    ;   //537  25  -       Number of RS-Bus retransmissions
+    unsigned char LenzCor    ;   //538  26  -       LENZ acc. decoder address correction
+    unsigned char SkipUnEven ;   //539  27  -       Even addresses are not used
                                //                 CVs below are standard (for OpenDecoder)
     unsigned char BiDi     ;   //540  28  -       Bi-Directional Communication Config - keep at 0
     unsigned char Config   ;   //541  29  -       similar to CV#29; for acc. decoders
