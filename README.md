@@ -46,6 +46,12 @@ The decoder print has 16 relays, and therefore listens to 16 DCC addresses.
 Programming of the decoder address is similar to programming of other decoders, however.
 The start address will therefore be a multiple of 4, and not of 16!
 
+
 # Hardware #
 The hardware and schematics can be downloaded from [my EasyEda homepage](https://easyeda.com/aikopras/relays-16-decoder).
 A description of this decoder and related decoders can be found on [https://sites.google.com/site/dcctrains](https://sites.google.com/site/dcctrains).
+
+
+# Compile and Flash #
+The software is written in C and runs on ATMEGA16A and similar processors (32A, 644A). It is a relative small modification of the [Opendecoder](https://www.opendcc.de/index_e.html) project, and written in "pre-Arduino times". 
+It can be compiled, linked and uploaded using the [<b>Makefile</b> file](/src/Makefile) in the src directory, or via the Arduino IDE (not completely tested, however). Instructions for using the Arduino IDE can be found in the [<b>Arduino-RELAYS16.ino</b> file](/src/Arduino-GBM.ino). Note that you have to rename the /src directory into "Arduino-RELAYS16" before you open the .ino file.

@@ -179,6 +179,17 @@ int main(void)
 
     sei();                                              // Global enable interrupts
 
+    // Check if the EEPROM has been initialised. In case the program is compiled
+    // and flashed using "make flash", the EEPROM should have been initialised during flash.
+    // However, the Arduino IDE does not flash the EPPROM during program upload.
+    // In that case we need to initialise from here.
+    if (my_eeprom_read_byte(&CV.VID) != 0x0D) {
+      ResetDecoder();                             // Copy all default values to EEPROM
+      _restart();                                 // really hard exit
+    }
+    
+    
+    
     while(1)
       {
         if (semaphor_query(C_Received))

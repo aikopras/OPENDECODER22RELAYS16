@@ -159,7 +159,7 @@ signed char last_sm_mode_received;  // timer variable to create a update grid;
 // 
 // restore all eeprom content to default and reboot
 
-void ResetDecoder(unsigned char state)
+void ResetDecoder(void)
   {
     unsigned int i;
     unsigned char default_value;
@@ -234,7 +234,7 @@ void cv_operation(void)
             if (ReceivedCV == (8-1))    // cv8 is coded as 7
               {
                 activate_ACK(6);
-                ResetDecoder(ReceivedData);
+                ResetDecoder();
                 _restart();                         // really hard exit
               }
             if (cv_is_blocked(ReceivedCV)) return;
@@ -621,5 +621,3 @@ void init_dcc_decode(void)
       PORTB &= ~(1<<7);
     #endif
   }
-
-

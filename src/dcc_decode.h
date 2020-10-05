@@ -45,6 +45,8 @@ struct message
   };
 */
 
+
+
 extern unsigned int  ReceivedAddr;          // last received address - gets filled by dcc_decode
 extern unsigned int  ReceivedCommand;       // subaddress (starting from the first address)
                                             // or aspect
@@ -57,7 +59,8 @@ unsigned char analyze_message(t_message *new);        // this returns a code on 
                                             // 3: if accessory and address > myAddr (Received Command is extended)
 
 void init_dcc_decode(void);
-             
+void ResetDecoder(void);
+
 
 
 
